@@ -8,7 +8,7 @@ import { useGetTopChartsQuery } from '../redux/services/api';
 
 const Discover = () => {
     const dispatch= useDispatch();
-    const { activeSong,isPlaying } = useSelector((state) => state.player);
+    const { activeSong, isPlaying } = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetTopChartsQuery();
     const genreTitle = 'Pop';
 
@@ -38,7 +38,7 @@ const Discover = () => {
 
             <div className='flex flex-wrap sm:justify-start
             justify-center gap-8'>
-                {data?.map((song, i) => (
+                {data?.tracks.map((song, i) => (
                     <SongCard 
                         key={song.key}
                         song={song}
