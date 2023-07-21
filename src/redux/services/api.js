@@ -26,9 +26,24 @@ import { createApi , fetchBaseQuery} from '@reduxjs/toolkit/query/react';
       }),
       endpoints: (builder) => ({
         getTopCharts: builder.query({ query: () => '/charts/track' }),
+        getSongsByGenre: builder.query({ query: (genre) => 
+        `/charts/track?listId=${genre}` }),
+        getSongDetails: builder.query({ query: ({ songid }) => 
+        `/songs/get-details?key=${songid}` }),
+        getSongRelated: builder.query({ query: ({ songid }) => 
+        `/songs/list-recommendations?key=${songid}` }),
+        getSongsByCountry: builder.query({ query: (countryCode) => 
+        `/charts/track?locale=${countryCode}` }),
+        getSongsBySearch: builder.query({ query: (searchTerm) => 
+        `/search?term=${searchTerm}` }),
       }),
     });
 
     export const {
       useGetTopChartsQuery,
+      useGetSongDetailsQuery,
+      useGetSongRelatedQuery,
+      useGetSongsByCountryQuery,
+      useGetSongsByGenreQuery,
+      useGetSongsBySearchQuery,
     } = api;
