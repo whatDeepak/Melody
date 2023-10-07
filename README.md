@@ -1,6 +1,6 @@
 Project Link [Link](https://melody-tunes.vercel.app/)
 
-# Project Lyrics
+# Project Melody
 
 Develop an elegant React.js Music Application. 
 
